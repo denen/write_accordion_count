@@ -1,0 +1,6 @@
+textarea {
+    display: none;  
+}
+input[type="checkbox"]:checked + textarea {
+    display: block;
+}
