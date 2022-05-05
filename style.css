@@ -1,6 +1,25 @@
-textarea {
+label{
+    background: #333;
+    color: #fff;
+    display: block;
+    margin-bottom: 1px;
+    padding: 10px;
+}
+input[type="checkbox"] {
+    display:none;
+}
+.acd-content {
+    box-sizing: border-box;
+    background: rgb(128, 127, 206);
+    color: #fff;
+    margin-bottom: 1px;
     display: none;  
 }
-input[type="checkbox"]:checked + textarea {
+input[type="checkbox"]:checked + .acd-content {
     display: block;
+}
+textarea{
+    width: 100%;    /* 横は100% */
+    height: 200px; 
+    padding: 10px; 
 }
