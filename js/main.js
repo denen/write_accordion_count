@@ -5,8 +5,11 @@
 // button.addEventListener('click', butotnClick);
 
 function keyup_event(event) {
-    t = event.target
-    t.nextElementSibling.value = t.value.length
+    t = event.target;
+    //t_pre = t.previousElementSibling;
+    //t_pre.getElementsByClassName("mojisu")[0].value = t.value.length
+    console.log(t.closest(".contener"));
+    t.closest(".contener").getElementsByClassName("mojisu")[0].value = t.value.length
 
     let all_mojisu = 0;
     for (i = 0; i < texts.length; i++) {

@@ -1,0 +1,62 @@
+.label {
+    display: block;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+}
+
+.label:hover {
+    background-color: azure;
+}
+
+.check {
+    display: none;
+}
+
+.label-box {
+    height: 25px;
+    display: block;
+    padding: 10px;
+    background-color: aqua;
+    position: relative;
+}
+
+.content {
+    border: 1px solid #333;
+    height: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: .5s;
+}
+
+.mojisu-box {
+    display: block;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+.textarea {
+    /* padding: 10 10px; */
+    margin: 0;
+    height: 0;
+    width: 600px;
+    transition: .5s;
+    opacity: 0;
+}
+
+.check:checked+.content {
+    opacity: 1;
+    height: 123px;
+    visibility: visible;
+}
+
+.check:checked+.content>.textarea {
+    padding: 10px;
+    margin: 0;
+    opacity: 1;
+    height: 100px;
+    visibility: visible;
+    /* box-sizing: border-box; */
+    /* ↑これを入れるとはみ出さない！ https://teratail.com/questions/323268*/
+}
