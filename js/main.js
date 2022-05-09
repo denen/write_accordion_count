@@ -4,6 +4,24 @@
 // let button = document.getElementById('xxx');
 // button.addEventListener('click', butotnClick);
 
+var new_h2_block = "<div><h2>追加した要素です</h2></div>"
+
+function add_h2(event) {
+    var count = document.getElementsByClassName("label-box").length;
+    var t = event.target;
+    var template = document.getElementById("h2"); //document.queryselectorでもいい https://zenn.dev/harryduck/articles/e3e6c9d37e0169c05096
+    var content = template.content; //　templateを取得してから中身を取得しないととれない　https://code-kitchen.dev/html/template/
+    var clone = content.cloneNode(true); //importnodeは他のドキュメントに属するノードをクローンする  https://yossan.hatenablog.com/entry/2020/03/29/185739
+    //clonenodeでも良い　https://developer.mozilla.org/ja/docs/Web/HTML/Element/template
+    var input = clone.querySelector("#count1");
+    input.id = count + 1; //ここでid変更したらcloneにも適応されてる…なぜ？？参照取得だからか？？
+    var label = clone.querySelector(".label");
+    label.setAttribute("for", count + 1);
+    label.innerText = count + 1
+        //document.body.appendChild(clone);
+    t.closest(".contener").insertBefore(clone, t);
+}
+
 function keyup_event(event) {
     t = event.target;
     //t_pre = t.previousElementSibling;
@@ -56,10 +74,15 @@ function dblclick_label(event) {
 const labels = document.getElementsByClassName("h2");
 const texts = document.getElementsByClassName("textarea");
 const all_moji = document.getElementById("all_moji");
+const contener = document.getElementsByClassName("contener");
 document.addEventListener('click', click_input);
 
 for (i = 0; i < labels.length; i++) {
     labels[i].addEventListener('dblclick', dblclick_label);
+}
+
+for (i = 0; i < contener.length; i++) {
+    contener[i].addEventListener('contextmenu', add_h2);
 }
 
 
