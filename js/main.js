@@ -25,6 +25,8 @@ function add_h2(event) {
 
     new_add_div = document.getElementById(input.id).parentElement.querySelector(".add-contener");
     new_add_div.addEventListener('click', add_h2);
+    new_div_text = document.getElementById(input.id).parentElement.querySelector("textarea");
+    new_div_text.addEventListener('keyup', keyup_event);;
 }
 
 function keyup_event(event) {
