@@ -17,9 +17,14 @@ function add_h2(event) {
     input.id = count + 1; //ここでid変更したらcloneにも適応されてる…なぜ？？参照取得だからか？？
     var label = clone.querySelector(".label");
     label.setAttribute("for", count + 1);
-    label.innerText = count + 1
-        //document.body.appendChild(clone);
-    t.closest(".contener").insertBefore(clone, t);
+    t.closest(".contener").parentElement.insertBefore(clone, t.closest(".contener").nextSibling); //要素追加
+    var label_box = document.getElementById(count + 1).parentElement.querySelector(".label-box");
+    label_box.style.backgroundColor = 'red'; //赤に変える
+
+    setTimeout(() => { label_box.style.backgroundColor = 'aqua' }, 1500);
+
+    new_add_div = document.getElementById(input.id).parentElement.querySelector(".add-contener");
+    new_add_div.addEventListener('click', add_h2);
 }
 
 function keyup_event(event) {
@@ -39,12 +44,12 @@ function keyup_event(event) {
 function click_input(event) { //ダブルクリックするとinputを表示
     var t = event.target;
 
-    if (!t.closest('.label_input')) {
+    if (!t.closest('.h2_input')) {
         //if (!t.) {
         //class h2 のダブルクリックでない場合
         console.log("外側クリック");
         console.log(t.tagName);
-        inputs = document.getElementsByClassName("label_input");
+        inputs = document.getElementsByClassName("h2_input");
         console.log(inputs.length)
         while (inputs.length) { //forで回すと要素数が減るので添字指定がうまくいかなくなる　https://qiita.com/suin/items/1c2c0e36a9dffde31e10
             inputs[0].nextElementSibling.style.display = "block";
@@ -62,6 +67,7 @@ function dblclick_label(event) {
     var newElement = document.createElement("input");
     newElement.setAttribute("class", "label_input");
     input = t.parentElement.insertBefore(newElement, t);
+    input.setAttribute("class", "h2_input");
     input.value = t.innerText;
     t.style.display = "none";
 }
@@ -74,15 +80,16 @@ function dblclick_label(event) {
 const labels = document.getElementsByClassName("h2");
 const texts = document.getElementsByClassName("textarea");
 const all_moji = document.getElementById("all_moji");
-const contener = document.getElementsByClassName("contener");
+const add_contener_div = document.getElementsByClassName("add-contener")
+    //const contener = document.getElementsByClassName("contener");
 document.addEventListener('click', click_input);
 
 for (i = 0; i < labels.length; i++) {
     labels[i].addEventListener('dblclick', dblclick_label);
 }
 
-for (i = 0; i < contener.length; i++) {
-    contener[i].addEventListener('contextmenu', add_h2);
+for (i = 0; i < add_contener_div.length; i++) {
+    add_contener_div[i].addEventListener('click', add_h2);
 }
 
 
