@@ -21,7 +21,16 @@
 .h2 {
     position: absolute;
     left: 40px;
-    top: -10px;
+    top: -15px;
+    /* position: relative; */
+    margin-right: 5px;
+    margin-left: 5px;
+    padding: 0.2em 0.5em;
+    border: dashed 2px #fff;
+    background: #c8e4ff;
+    box-shadow: 0 0 0 5px #c8e4ff;
+    color: #454545;
+    width: 675px;
 }
 
 .h2_input {
@@ -41,7 +50,7 @@
 }
 
 .label-box {
-    height: 45px;
+    height: 60px;
     width: 750px;
     display: block;
     /* padding: 10px; */
@@ -50,6 +59,7 @@
 }
 
 .content {
+    position: relative;
     border: 1px solid #333;
     height: 0;
     opacity: 0;
@@ -65,12 +75,16 @@
 }
 
 .textarea {
+    background-color: white;
     /* padding: 10 10px; */
+    position: absolute;
+    left: 40px;
     margin: 0;
     height: 0;
-    width: 700px;
+    width: 690px;
     transition: .5s;
     opacity: 0.3;
+    font-size: 16px;
 }
 
 .add-contener {

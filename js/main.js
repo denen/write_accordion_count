@@ -4,7 +4,13 @@
 // let button = document.getElementById('xxx');
 // button.addEventListener('click', butotnClick);
 
-var new_h2_block = "<div><h2>追加した要素です</h2></div>"
+(function() {
+    var template = document.getElementById("h2");
+    var content = template.content;
+    var clone = content.cloneNode(true);
+    var main = document.querySelector("#main");
+    main.insertBefore(clone, main.firstChild); //第二引数をnullにすると最後にはいるようだ
+}());
 
 function add_h2(event) {
     var count = document.getElementsByClassName("label-box").length;
@@ -21,12 +27,20 @@ function add_h2(event) {
     var label_box = document.getElementById(count + 1).parentElement.querySelector(".label-box");
     label_box.style.backgroundColor = 'red'; //赤に変える
 
-    setTimeout(() => { label_box.style.backgroundColor = 'aqua' }, 1500);
+    setTimeout(() => { label_box.style.backgroundColor = 'aqua' }, 500);
 
-    new_add_div = document.getElementById(input.id).parentElement.querySelector(".add-contener");
-    new_add_div.addEventListener('click', add_h2);
-    new_div_text = document.getElementById(input.id).parentElement.querySelector("textarea");
-    new_div_text.addEventListener('keyup', keyup_event);;
+    //新しい要素にイベント追加
+    new_div = document.getElementById(input.id).parentElement;
+    new_div.querySelector(".add-contener").addEventListener('click', add_h2);
+    new_div.querySelector("textarea").addEventListener('keyup', keyup_event);
+    new_div.querySelector(".h2").addEventListener('dblclick', dblclick_label);
+
+    //new_add_div = document.getElementById(input.id).parentElement.querySelector(".add-contener");
+    //new_add_div.addEventListener('click', add_h2);
+    //new_div_text = document.getElementById(input.id).parentElement.querySelector("textarea");
+    //new_div_text.addEventListener('keyup', keyup_event);
+    //new_h2 = document.getElementById(input.id).parentElement.querySelector(".h2");
+    //new_h2.addEventListener('dblclick', dblclick_label);
 }
 
 function keyup_event(event) {
@@ -34,7 +48,7 @@ function keyup_event(event) {
     //t_pre = t.previousElementSibling;
     //t_pre.getElementsByClassName("mojisu")[0].value = t.value.length
     console.log(t.closest(".contener"));
-    t.closest(".contener").getElementsByClassName("mojisu")[0].value = t.value.length
+    t.closest(".contener").getElementsByClassName("mojisu")[0].innerText = t.value.length
 
     let all_mojisu = 0;
     for (i = 0; i < texts.length; i++) {
@@ -66,12 +80,17 @@ function click_input(event) { //ダブルクリックするとinputを表示
 
 function dblclick_label(event) {
     var t = event.target;
-    var newElement = document.createElement("input");
-    newElement.setAttribute("class", "label_input");
-    input = t.parentElement.insertBefore(newElement, t);
-    input.setAttribute("class", "h2_input");
-    input.value = t.innerText;
-    t.style.display = "none";
+    if (t.className == "h2") { //==にしないと動作しない
+        var newElement = document.createElement("input");
+        newElement.setAttribute("class", "label_input");
+        input = t.parentElement.insertBefore(newElement, t);
+        input.setAttribute("class", "h2_input");
+        input.value = t.innerText;
+        t.style.display = "none";
+    } else if (t.className == "textarea") {
+
+    }
+
 }
 
 
@@ -79,11 +98,12 @@ function dblclick_label(event) {
 // let text = document.getElementById('test');
 // text.addEventListener('keyup', keyup_event);
 
-const labels = document.getElementsByClassName("h2");
+//const labels = document.getElementsByClassName("h2");
+const labels = document.getElementsByClassName("label-box");
 const texts = document.getElementsByClassName("textarea");
 const all_moji = document.getElementById("all_moji");
 const add_contener_div = document.getElementsByClassName("add-contener")
-    //const contener = document.getElementsByClassName("contener");
+const contener = document.getElementsByClassName("contener");
 document.addEventListener('click', click_input);
 
 for (i = 0; i < labels.length; i++) {
@@ -94,10 +114,9 @@ for (i = 0; i < add_contener_div.length; i++) {
     add_contener_div[i].addEventListener('click', add_h2);
 }
 
-
-
 for (i = 0; i < texts.length; i++) {
     texts[i].addEventListener('keyup', keyup_event);
+    texts[i].addEventListener('dblclick', dblclick_label);
 }
 
 //https://blog-and-destroy.com/24410
