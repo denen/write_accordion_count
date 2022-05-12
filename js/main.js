@@ -4,6 +4,7 @@
 // let button = document.getElementById('xxx');
 // button.addEventListener('click', butotnClick);
 
+//#mainにtemplate内容を描画　即時実行
 (function() {
     var template = document.getElementById("h2");
     var content = template.content;
@@ -11,6 +12,18 @@
     var main = document.querySelector("#main");
     main.insertBefore(clone, main.firstChild); //第二引数をnullにすると最後にはいるようだ
 }());
+
+//内容に応じてサイズが可変する <textarea> を素敵に実装する Qiita
+//https://qiita.com/tsmd/items/fce7bf1f65f03239eef0
+function flexTextarea(el) {
+    const dummy = el.querySelector('.FlexTextarea__dummy')
+    el.querySelector('.FlexTextarea__textarea').addEventListener('input', e => {
+        dummy.textContent = e.target.value + '\u200b'
+    })
+}
+document.querySelectorAll('.FlexTextarea').forEach(flexTextarea);
+
+
 
 function add_h2(event) {
     var count = document.getElementsByClassName("label-box").length;
@@ -34,6 +47,7 @@ function add_h2(event) {
     new_div.querySelector(".add-contener").addEventListener('click', add_h2);
     new_div.querySelector("textarea").addEventListener('keyup', keyup_event);
     new_div.querySelector(".h2").addEventListener('dblclick', dblclick_label);
+    flexTextarea(new_div.querySelector('.FlexTextarea'));
 
     //new_add_div = document.getElementById(input.id).parentElement.querySelector(".add-contener");
     //new_add_div.addEventListener('click', add_h2);
