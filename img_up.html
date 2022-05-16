@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <style>
+        #preview img {
+            width: 200px;
+            margin: 10px;
+            border: solid 1px silver;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="file" id="example" multiple>
+
+    <!-- 👇ここにプレビュー画像を追加する -->
+    <div id="preview"></div>
+
+    <script>
+        //ここからimgのアップロード
+        // <input>でファイルが選択されたときの処理
+        function previewFile(file) {
+            // プレビュー画像を追加する要素
+            const preview = document.getElementById('preview');
+
+            // FileReaderオブジェクトを作成
+            const reader = new FileReader();
+
+            // URLとして読み込まれたときに実行する処理
+            reader.onload = function(e) {
+                const imageUrl = e.target.result; // URLはevent.target.resultで呼び出せる
+                const img = document.createElement("img"); // img要素を作成
+                img.src = imageUrl; // URLをimg要素にセット
+                preview.appendChild(img); // #previewの中に追加
+            }
+
+            // いざファイルをURLとして読み込む
+            reader.readAsDataURL(file);
+        }
+
+        // <input>でファイルが選択されたときの処理
+        const fileInput = document.getElementById('example');
+        const handleFileSelect = () => {
+            const files = fileInput.files;
+            for (let i = 0; i < files.length; i++) {
+                previewFile(files[i]);
+            }
+        }
+        fileInput.addEventListener('change', handleFileSelect);
+    </script>
+</body>
+
+</html>
