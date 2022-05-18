@@ -118,7 +118,7 @@ const texts = document.getElementsByClassName("textarea");
 const all_moji = document.getElementById("all_moji");
 const add_contener_div = document.getElementsByClassName("add-contener")
 const contener = document.getElementsByClassName("contener");
-document.addEventListener('click', click_input);
+//document.addEventListener('click', click_input);
 
 for (i = 0; i < labels.length; i++) {
     labels[i].addEventListener('dblclick', dblclick_label);

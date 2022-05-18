@@ -10,6 +10,7 @@
 </head>
 
 <body>
+    <img class="intLink" title="Bold" onclick="formatDoc('bold');" src="data:image/gif;base64,R0lGODlhFgAWAID/AMDAwAAAACH5BAEAAAAALAAAAAAWABYAQAInhI+pa+H9mJy0LhdgtrxzDG5WGFVk6aXqyk6Y9kXvKKNuLbb6zgMFADs=" />
 
     <template id="h2">
         <div class="contener">
@@ -17,10 +18,7 @@
                 <label class="label" for="count1">▼</label><h2 class="h2">ここにタイトルが入る</h2>
                 <span class="mojisu-box"><div  class="mojisu" ></div>文字</div>
             <input id="count1" type="checkbox" class="check">
-            <div class="FlexTextarea"><!-- <div class="content"> -->
-                <div class="FlexTextarea__dummy" aria-hidden="true"></div>
-                <textarea class="FlexTextarea__textarea" name="count1"><!-- <textarea class="textarea FlexTextarea__textarea" name="count1"> -->ここにテキスト</textarea>
-            </div>
+                <div class="FlexTextarea__textarea" name="count1" contenteditable="true"><!-- <textarea class="textarea FlexTextarea__textarea" name="count1"> -->ここにテキスト</div>
             <div class="add-contener">+</div>
         </div>
         </template>
@@ -50,6 +48,13 @@
     </div>
 
     <script src="js/main.js"></script>
+    <script type="text/javascript">
+        ///太字にする
+        function formatDoc(sCmd, sValue) {
+            console.log("exeCommandです")
+            document.execCommand(sCmd, false, sValue);
+        }
+    </script>
 </body>
 
 </html>
