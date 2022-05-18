@@ -6,7 +6,7 @@
 .contener {
     position: relative;
     width: 750px;
-    background-color: black;
+    background-color: rgb(243, 248, 218);
 }
 
 .label {
@@ -51,7 +51,7 @@
 
 .content {
     border: 1px solid #333;
-    height: 0;
+    height: 100%;
     opacity: 0;
     visibility: hidden;
     transition: .5s;
@@ -93,7 +93,7 @@
 
 .check:checked+.content {
     opacity: 1;
-    height: 123px;
+    height: 100%;
     visibility: visible;
 }
 
@@ -101,8 +101,8 @@
     padding: 10px;
     margin: 0;
     opacity: 1;
-    height: 100px;
+    height: 100%;
     visibility: visible;
-    /* box-sizing: border-box; */
+    box-sizing: border-box;
     /* ↑これを入れるとはみ出さない！ https://teratail.com/questions/323268*/
 }
