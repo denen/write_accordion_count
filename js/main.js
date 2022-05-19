@@ -23,10 +23,13 @@ function add_h2(event) {
 
     setTimeout(() => { label_box.style.backgroundColor = 'aqua' }, 1500);
 
+
     new_add_div = document.getElementById(input.id).parentElement.querySelector(".add-contener");
     new_add_div.addEventListener('click', add_h2);
-    new_div_text = document.getElementById(input.id).parentElement.querySelector("textarea");
-    new_div_text.addEventListener('keyup', keyup_event);;
+    new_div_text = document.getElementById(input.id).parentElement.querySelector(".textarea");
+    new_div_text.addEventListener('keyup', keyup_event);
+    new_label_input = document.getElementById(input.id).parentElement.querySelector(".h2");
+    new_label_input.addEventListener('dblclick', dblclick_label);
 }
 
 function keyup_event(event) {
@@ -34,13 +37,17 @@ function keyup_event(event) {
     //t_pre = t.previousElementSibling;
     //t_pre.getElementsByClassName("mojisu")[0].value = t.value.length
     console.log(t.closest(".contener"));
-    t.closest(".contener").getElementsByClassName("mojisu")[0].value = t.value.length
+    console.log(t.closest(".contener").getElementsByClassName("mojisu")[0]);
+    t.closest(".contener").getElementsByClassName("mojisu")[0].value = t.innerText.length;
 
     let all_mojisu = 0;
+    const texts = document.getElementsByClassName("textarea");
     for (i = 0; i < texts.length; i++) {
-        all_mojisu = all_mojisu + texts[i].value.length;
+        all_mojisu = all_mojisu + texts[i].innerText.length;
+        console.log(texts[i]);
+        console.log(all_mojisu);
     }
-    all_moji.value = all_mojisu
+    all_moji.value = all_mojisu;
 }
 
 function click_input(event) { //ダブルクリックするとinputを表示
@@ -93,8 +100,6 @@ for (i = 0; i < labels.length; i++) {
 for (i = 0; i < add_contener_div.length; i++) {
     add_contener_div[i].addEventListener('click', add_h2);
 }
-
-
 
 for (i = 0; i < texts.length; i++) {
     texts[i].addEventListener('keyup', keyup_event);
