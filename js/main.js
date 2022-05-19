@@ -92,10 +92,13 @@ const all_moji = document.getElementById("all_moji");
 const add_contener_div = document.getElementsByClassName("add-contener")
     //const contener = document.getElementsByClassName("contener");
 document.addEventListener('click', click_input);
+new_label_input = document.querySelector(".h2");
+new_label_input.addEventListener('dblclick', dblclick_label);
 
-for (i = 0; i < labels.length; i++) {
-    labels[i].addEventListener('dblclick', dblclick_label);
-}
+
+//for (i = 0; i < labels.length; i++) {
+//    labels[i].addEventListener('dblclick', dblclick_label);
+//}
 
 for (i = 0; i < add_contener_div.length; i++) {
     add_contener_div[i].addEventListener('click', add_h2);
