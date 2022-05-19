@@ -6,6 +6,19 @@
 
 var new_h2_block = "<div><h2>追加した要素です</h2></div>"
 
+function h2_h3_change(el) { //親要素の.lavel-boxを取得。子要素を直接操作でタグを変更するとフォーカス？？が外れてしまう。またgetしないといけない
+    tag = el.querySelector(".h2").tagName;
+    console.log(tag);
+    nakami = el.querySelector(".h2").innerHTML;
+    if (tag == "H2") {
+        el.querySelector(".h2").outerHTML = "<h3 class='h2'></h3>";
+        el.querySelector(".h2").innerHTML = nakami;
+    } else if (tag == "H3") {
+        el.querySelector(".h2").outerHTML = "<h2 class='h2'></h2>";
+        el.querySelector(".h2").innerHTML = nakami;
+    }
+}
+
 function add_h2(event) {
     var count = document.getElementsByClassName("label-box").length;
     var t = event.target;
