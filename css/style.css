@@ -106,3 +106,22 @@
     box-sizing: border-box;
     /* ↑これを入れるとはみ出さない！ https://teratail.com/questions/323268*/
 }
+
+
+/*右クリックメニュー*/
+
+#contextmenu {
+    display: none;
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 200px;
+    height: 50px;
+    border: 1px solid #000;
+    background-color: #fff;
+    z-index: 1;
+}
+
+#contextmenu li {
+    cursor: pointer;
+}

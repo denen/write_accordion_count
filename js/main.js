@@ -6,16 +6,18 @@
 
 var new_h2_block = "<div><h2>追加した要素です</h2></div>"
 
-function h2_h3_change(el) { //親要素の.lavel-boxを取得。子要素を直接操作でタグを変更するとフォーカス？？が外れてしまう。またgetしないといけない
-    tag = el.querySelector(".h2").tagName;
-    console.log(tag);
-    nakami = el.querySelector(".h2").innerHTML;
+function h2_h3_change() { //親要素の.lavel-boxを取得。子要素を直接操作でタグを変更するとフォーカス？？が外れてしまう。またgetしないといけない
+    console.log("引数として渡されました");
+    console.log(target_div);
+    nakami = target_div.querySelector(".h2").innerHTML;
+    console.log(nakami);
+    tag = target_div.querySelector(".h2").tagName;
     if (tag == "H2") {
-        el.querySelector(".h2").outerHTML = "<h3 class='h2'></h3>";
-        el.querySelector(".h2").innerHTML = nakami;
+        target_div.querySelector(".h2").outerHTML = "<h3 class='h2'></h3>";
+        target_div.querySelector(".h2").innerHTML = nakami;
     } else if (tag == "H3") {
-        el.querySelector(".h2").outerHTML = "<h2 class='h2'></h2>";
-        el.querySelector(".h2").innerHTML = nakami;
+        target_div.querySelector(".h2").outerHTML = "<h2 class='h2'></h2>";
+        target_div.querySelector(".h2").innerHTML = nakami;
     }
 }
 
@@ -104,7 +106,7 @@ const texts = document.getElementsByClassName("textarea");
 const all_moji = document.getElementById("all_moji");
 const add_contener_div = document.getElementsByClassName("add-contener")
     //const contener = document.getElementsByClassName("contener");
-document.addEventListener('click', click_input);
+    //document.addEventListener('click', click_input);
 new_label_input = document.querySelector(".h2");
 new_label_input.addEventListener('dblclick', dblclick_label);
 
@@ -122,3 +124,23 @@ for (i = 0; i < texts.length; i++) {
 }
 
 //https://blog-and-destroy.com/24410
+
+//https://www.sejuku.net/blog/92015
+//右クリックメニュー
+window.onload = function() {
+    document.body.addEventListener('contextmenu', function(e) {
+        console.log(e); //pointerEvent
+        target_div = e.path[0];
+        console.log(target_div); //pointerEvetのpath[0]
+
+        document.getElementById('contextmenu').style.left = e.pageX + "px";
+        document.getElementById('contextmenu').style.top = e.pageY + "px";
+        document.getElementById('contextmenu').style.display = "block";
+        document.getElementById('contextmenu').querySelector("li").addEventListener("dblclick", { target_div: target_div, handleEvent: h2_h3_change });
+    });
+}
+
+function menu1(e) {
+    alert(e);
+    alert("menu1がクリックされました。");
+}
