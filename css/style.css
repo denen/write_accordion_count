@@ -6,13 +6,13 @@
 .contener {
     position: relative;
     width: 750px;
-    background-color: rgb(243, 248, 218);
+    background-color: white;
 }
 
 .label {
     display: block;
     position: absolute;
-    left: 10px;
+    left: 15px;
     top: 10px;
     width: 20px;
     height: 15px;
@@ -41,6 +41,7 @@
 }
 
 .label-box {
+    position: relative;
     height: 45px;
     width: 750px;
     display: block;
@@ -95,6 +96,7 @@
     opacity: 1;
     height: 100%;
     visibility: visible;
+    outline: none;
 }
 
 .check:checked+.content>.textarea {
@@ -105,6 +107,10 @@
     visibility: visible;
     box-sizing: border-box;
     /* ↑これを入れるとはみ出さない！ https://teratail.com/questions/323268*/
+}
+
+.textarea:focus {
+    outline: none;
 }
 
 
@@ -124,4 +130,18 @@
 
 #contextmenu li {
     cursor: pointer;
+}
+
+
+/*h2のデザイン*/
+
+.h2_blue {
+    position: relative;
+    margin-right: 5px;
+    margin-left: 5px;
+    padding: 0.2em 0.5em;
+    border: dashed 2px #fff;
+    background: #c8e4ff;
+    box-shadow: 0 0 0 5px #c8e4ff;
+    color: #454545;
 }

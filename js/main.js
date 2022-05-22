@@ -44,11 +44,12 @@ function add_h2(event) { //　↓初期テンプレート表示と合体させ�
 
     setTimeout(() => { label_box.style.backgroundColor = 'aqua' }, 1500);
 
-    contener = document.getElementById(input.id).parentElement
+    var contener = document.getElementById(input.id).parentElement
         //イベントリスナー追加
     contener.querySelector(".add-contener").addEventListener('click', add_h2);
     contener.querySelector(".textarea").addEventListener('keyup', keyup_event);
     contener.querySelector(".h2").addEventListener('dblclick', dblclick_label);
+    contener.querySelector(".label-box").addEventListener('click', click_input);
     contener.querySelector(".label-box").addEventListener('contextmenu', menu);
 }
 
@@ -151,6 +152,7 @@ window.onload = function() {
     clone.querySelector(".label").setAttribute("for", 1);
     document.getElementById("title").insertBefore(clone, null); //要素追加
     document.querySelector(".h2").addEventListener('dblclick', dblclick_label);
+    document.querySelector(".label-box").addEventListener('click', click_input);
     document.querySelector(".add-contener").addEventListener('click', add_h2);
     document.querySelector(".label-box").addEventListener('contextmenu', menu);
 }
