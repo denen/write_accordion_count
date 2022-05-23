@@ -1,6 +1,6 @@
 #main {
     width: 800px;
-    background-color: blueviolet;
+    /* background-color: blueviolet; */
 }
 
 .contener {
@@ -16,6 +16,7 @@
     top: 10px;
     width: 20px;
     height: 15px;
+    z-index: 10;
 }
 
 .h2 {
@@ -46,7 +47,7 @@
     width: 750px;
     display: block;
     /* padding: 10px; */
-    background-color: aqua;
+    /* background-color: aqua; */
     position: relative;
 }
 
@@ -82,13 +83,13 @@
     width: 25px;
     opacity: 0.3;
     transition: .5s;
-    background-color: cadetblue;
+    /* background-color: cadetblue; */
     border-radius: 5px;
 }
 
 .add-contener:hover {
     display: block;
-    background-color: cadetblue;
+    /* background-color: cadetblue; */
     opacity: 1;
 }
 
@@ -135,7 +136,8 @@
 
 /*h2のデザイン*/
 
-.h2_blue {
+h2 {
+    width: 700px;
     position: relative;
     margin-right: 5px;
     margin-left: 5px;
@@ -144,4 +146,20 @@
     background: #c8e4ff;
     box-shadow: 0 0 0 5px #c8e4ff;
     color: #454545;
+    padding-left: 30px;
+}
+
+h3 {
+    padding-left: 50px;
+    /*文字周りの余白*/
+    color: #494949;
+    /*文字色*/
+    background: #fffaf4;
+    /*背景色*/
+    border-left: solid 5px #ffaf58;
+    /*左線（実線 太さ 色）*/
+}
+
+img {
+    width: 700px;
 }

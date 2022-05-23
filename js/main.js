@@ -42,7 +42,7 @@ function add_h2(event) { //　↓初期テンプレート表示と合体させ�
     var label_box = document.getElementById(count + 1).parentElement.querySelector(".label-box");
     label_box.style.backgroundColor = 'red'; //赤に変える
 
-    setTimeout(() => { label_box.style.backgroundColor = 'aqua' }, 1500);
+    setTimeout(() => { label_box.style.backgroundColor = '' }, 1500);
 
     var contener = document.getElementById(input.id).parentElement
         //イベントリスナー追加

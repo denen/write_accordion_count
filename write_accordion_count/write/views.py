@@ -51,7 +51,7 @@ def edit_write_confirm(request, write_id):
         'title': 'Edit Write(confirm)',
         'mode': 'confirm',
         'warning_message': 'Are you sure you want to save?',
-        'Write': write,
+        'write': write,
     }
     template = loader.get_template('edit_Write.html')
     return HttpResponse(template.render(context, request))

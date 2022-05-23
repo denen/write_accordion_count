@@ -44,7 +44,7 @@ button {
 input[type="text"],
 select {
     border: 1px solid #ccc;
-    height: 1.5rem;
+    /* height: 1.5rem; */
     border-radius: .2rem;
     padding: 0 .3rem;
     width: 20rem;
@@ -76,4 +76,8 @@ input[readonly] {
     border: 1px solid #c99;
     background-color: #fcc;
     margin-bottom: .5rem;
+}
+
+div:focus {
+    outline: none;
 }
