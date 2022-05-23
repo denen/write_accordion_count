@@ -5,7 +5,7 @@ from django.http import HttpResponse
 from django.template import loader
 from .models import Write
 
-def list_writes(request):
+def list_write(request):
     writes = Write.objects.all()
     context = {
         'title': 'List Writes',

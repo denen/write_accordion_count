@@ -1,11 +1,11 @@
 {% extends 'layout.html' %}
 {% block content %}
-<form method="POST" action="{% url 'edit_write' write.book_id %}">
+<form method="POST" action="{% url 'edit_write' write.write_id %}">
   {% csrf_token %}
   <input type="hidden" name="mode" value="{{ mode }}">
   <table>
     <tr>
-      <th>Book ID</th>
+      <th>Write ID</th>
       <td><input type="text" name="write_id" readonly value="{{ write.write_id }}"></td>
     </tr>
     <tr>
