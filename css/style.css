@@ -137,16 +137,18 @@
 /*h2のデザイン*/
 
 h2 {
+    left: 0px;
+    position: absolute;
     width: 700px;
-    position: relative;
-    margin-right: 5px;
-    margin-left: 5px;
+    /* position: relative; */
+    /* margin-right: 5px; */
+    /* margin-left: 5px; */
     padding: 0.2em 0.5em;
     border: dashed 2px #fff;
     background: #c8e4ff;
     box-shadow: 0 0 0 5px #c8e4ff;
     color: #454545;
-    padding-left: 30px;
+    /* padding-left: 30px; */
 }
 
 h3 {

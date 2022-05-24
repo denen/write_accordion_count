@@ -1,0 +1,2 @@
+function copy_sentences() { document.getElementById("hidden_sentences").value = document.getElementById("sentences").innerHTML }
+document.getElementById("sentences").addEventListener('keyup', copy_sentences);

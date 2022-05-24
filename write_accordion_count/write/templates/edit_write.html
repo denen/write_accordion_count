@@ -6,16 +6,18 @@
   <table>
     <tr>
       <th>Write ID</th>
-      <td><input type="text" name="write_id" readonly value="{{ write.write_id }}"></td>
+      <td><input type=" hidden" name="write_id" readonly value="{{ write.write_id }}"></td>
     </tr>
     <tr>
       <th>Title</th>
-      <td><input type="text" name="title"
+      <td><div contentEditable="true">{{ write.title }}"</div>
+        <input type="hidden" name="title"
           {% if mode != 'input' %}readonly{% endif %} value="{{ write.title }}"></td>
     </tr>
     <tr>
       <th>sentences</th>
-      <td><input type="text" name="sentences"
+      <td><div id="sentences" contentEditable="true">{% autoescape off %}{{ write.sentences }}{% endautoescape %}</div>=
+        <input id="hidden_sentences" type="hidden" name="sentences"
           {% if mode != 'input' %}readonly{% endif %} value="{{ write.sentences }}"></td>
     </tr>
   </table>
@@ -31,4 +33,8 @@
     {% endif %}
   </div>
 </form>
+<script>
+  function copy_sentences() { document.getElementById("hidden_sentences").value = document.getElementById("sentences").innerHTML }
+document.getElementById("sentences").addEventListener('keyup', copy_sentences);
+</script>
 {% endblock %}

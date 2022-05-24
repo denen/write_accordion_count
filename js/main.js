@@ -15,10 +15,10 @@ function h2_h3_change(e) { //親要素の.lavel-boxを取得。子要素を直�
     console.log(nakami);
     tag = selected_label.querySelector(".h2").tagName;
     if (tag == "H2") {
-        selected_label.querySelector(".h2").outerHTML = "<h3 class='h2'></h3>";
+        selected_label.querySelector(".h2").outerHTML = "<h3 contenteditable='true' class='h2'></h3>";
         selected_label.querySelector(".h2").innerHTML = nakami;
     } else if (tag == "H3") {
-        selected_label.querySelector(".h2").outerHTML = "<h2 class='h2'></h2>";
+        selected_label.querySelector(".h2").outerHTML = "<h2 contenteditable='true' class='h2'></h2>";
         selected_label.querySelector(".h2").innerHTML = nakami;
     }
     document.getElementById('contextmenu').style.display = "none";
