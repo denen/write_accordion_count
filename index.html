@@ -10,21 +10,22 @@
 </head>
 
 <body>
-    <img class="intLink" title="Bold" onclick="formatDoc('bold');" src="data:image/gif;base64,R0lGODlhFgAWAID/AMDAwAAAACH5BAEAAAAALAAAAAAWABYAQAInhI+pa+H9mJy0LhdgtrxzDG5WGFVk6aXqyk6Y9kXvKKNuLbb6zgMFADs=" />
+
 
     <template id="h2">
         <div class="contener">
-            <div class="label-box">
-                <label class="label" for="count1">▼</label><h2 class="h2">ここにタイトルが入る</h2>
-                <span class="mojisu-box"><div  class="mojisu" ></div>文字</div>
+            <div class="label-box" oncontextmenu="return false;">
+                <label class="label" for="count1">▼</label><h2 contentEditable="true" class="h2">ここにタイトルが入る</h2>
+                <span class="mojisu-box"><input  class="mojisu" type="text" disabled> 文字 </span></div>
             <input id="count1" type="checkbox" class="check">
-                <div class="FlexTextarea__textarea" name="count1" contenteditable="true"><!-- <textarea class="textarea FlexTextarea__textarea" name="count1"> -->ここにテキスト</div>
+            <div class="content">
+                <div class="textarea" name="count1" contenteditable="true">ここにテキスト</div>
+            </div>
             <div class="add-contener">+</div>
         </div>
-        </template>
+    </template>
 
 
-    <h1>タイトル</h1>
 
     <div>▼隠すボタン</div>
     <div>キーワード　キーワードディフィ</div>
@@ -33,13 +34,12 @@
 
     <div>メモ</div>
 
-    <div>
-        総文字数 : <input id="all_moji" type="text" disabled> 文字
-    </div>
+
 
     <div id="main">
-
-
+        <div id="title">
+            総文字数 : <input id="all_moji" type="text" disabled> 文字
+        </div>
 
         <form action="" method="post">
             <input type="submit" value="記事を保存">

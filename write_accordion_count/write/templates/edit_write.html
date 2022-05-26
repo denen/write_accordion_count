@@ -1,0 +1,40 @@
+{% extends 'layout.html' %}
+{% block content %}
+<form method="POST" action="{% url 'edit_write' write.write_id %}">
+  {% csrf_token %}
+  <input type="hidden" name="mode" value="{{ mode }}">
+  <table>
+    <tr>
+      <th>Write ID</th>
+      <td><input type=" hidden" name="write_id" readonly value="{{ write.write_id }}"></td>
+    </tr>
+    <tr>
+      <th>Title</th>
+      <td><div contentEditable="true">{{ write.title }}"</div>
+        <input type="hidden" name="title"
+          {% if mode != 'input' %}readonly{% endif %} value="{{ write.title }}"></td>
+    </tr>
+    <tr>
+      <th>sentences</th>
+      <td><div id="sentences" contentEditable="true">{% autoescape off %}{{ write.sentences }}{% endautoescape %}</div>=
+        <input id="hidden_sentences" type="hidden" name="sentences"
+          {% if mode != 'input' %}readonly{% endif %} value="{{ write.sentences }}"></td>
+    </tr>
+  </table>
+  <div class="basic-block">
+    {% if mode == 'input' %}
+      <button type="button" onclick="location.href='{% url 'list_write' %}'">Return</button>
+      <button type="submit">OK</button>
+    {% elif mode == 'confirm' %}
+      <button type="button" onclick="history.back()">Back</button>
+      <button type="submit">OK</button>
+    {% elif mode == 'result' %}
+      <button type="button" onclick="location.href='{% url 'list_write' %}'">Return</button>
+    {% endif %}
+  </div>
+</form>
+<script>
+  function copy_sentences() { document.getElementById("hidden_sentences").value = document.getElementById("sentences").innerHTML }
+document.getElementById("sentences").addEventListener('keyup', copy_sentences);
+</script>
+{% endblock %}

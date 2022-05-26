@@ -1,0 +1,30 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+<table>
+    <thead>
+      <tr>
+        <th>Book ID</th>
+        <th>Title</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% if writes %}
+        {% for write in writes %}
+          <tr>
+            <td><a href="/write/{{ write.write_id }}">{{ write.write_id }}</a></td>
+            <td>{{ write.title }}</td>
+            <td><a href="/write/{{ write.write_id }}/edit">[Edit]</a></td>
+          </tr>
+        {% endfor %}
+      {% else %}
+        <tr>
+          <td colspan=4>No writes.</td>
+        </tr>
+      {% endif %}
+    </tbody>
+  </table>
+
+
+{% endblock %}

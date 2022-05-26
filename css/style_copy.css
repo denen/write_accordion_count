@@ -53,6 +53,7 @@ width: 675px;
 }
 
 .content {
+    position: relative;
     border: 1px solid #333;
     opacity: 0;
     visibility: hidden;
@@ -68,10 +69,8 @@ width: 675px;
 
 .textarea {
     /* padding: 10 10px; */
-    position: absolute;
     left: 40px;
     margin: 0;
-    height: 0;
     width: 650px;
     transition: .5s;
     opacity: 0.3;

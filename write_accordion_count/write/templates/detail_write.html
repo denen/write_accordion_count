@@ -1,0 +1,10 @@
+{% extends 'layout.html' %}
+{% block content %}
+<table>
+  <tr><th>Book ID</th><td>{{ write.write_id }}</td></tr>
+  <tr><th>Title</th><td>{{ write.title }}</td></tr>
+</table>
+<div class="basic-block">
+  <button onclick="location.href='/write/'">Return</button>
+</div>
+{% endblock %}
