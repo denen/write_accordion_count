@@ -1,0 +1,167 @@
+#main {
+    width: 800px;
+    /* background-color: blueviolet; */
+}
+
+.contener {
+    position: relative;
+    width: 750px;
+    background-color: white;
+}
+
+.label {
+    display: block;
+    position: absolute;
+    left: 15px;
+    top: 10px;
+    width: 20px;
+    height: 15px;
+    z-index: 10;
+}
+
+.h2 {
+    position: absolute;
+    left: 40px;
+    top: -10px;
+}
+
+.h2_input {
+    font-size: 150%;
+    position: absolute;
+    left: 40px;
+    top: 10px;
+    height: 20px;
+}
+
+.label:hover {
+    background-color: azure;
+}
+
+.check {
+    display: none;
+}
+
+.label-box {
+    position: relative;
+    height: 45px;
+    width: 750px;
+    display: block;
+    /* padding: 10px; */
+    /* background-color: aqua; */
+    position: relative;
+}
+
+.content {
+    border: 1px solid #333;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: .5s;
+}
+
+.mojisu-box {
+    display: block;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+.textarea {
+    /* padding: 10 10px; */
+    margin: 0;
+    height: 0;
+    width: 700px;
+    transition: .5s;
+    opacity: 0.3;
+}
+
+.add-contener {
+    position: absolute;
+    bottom: -12px;
+    right: -30px;
+    height: 25px;
+    width: 25px;
+    opacity: 0.3;
+    transition: .5s;
+    /* background-color: cadetblue; */
+    border-radius: 5px;
+}
+
+.add-contener:hover {
+    display: block;
+    /* background-color: cadetblue; */
+    opacity: 1;
+}
+
+.check:checked+.content {
+    opacity: 1;
+    height: 100%;
+    visibility: visible;
+    outline: none;
+}
+
+.check:checked+.content>.textarea {
+    padding: 10px;
+    margin: 0;
+    opacity: 1;
+    height: 100%;
+    visibility: visible;
+    box-sizing: border-box;
+    /* ↑これを入れるとはみ出さない！ https://teratail.com/questions/323268*/
+}
+
+.textarea:focus {
+    outline: none;
+}
+
+
+/*右クリックメニュー*/
+
+#contextmenu {
+    display: none;
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 200px;
+    height: 50px;
+    border: 1px solid #000;
+    background-color: #fff;
+    z-index: 1;
+}
+
+#contextmenu li {
+    cursor: pointer;
+}
+
+
+/*h2のデザイン*/
+
+h2 {
+    left: 0px;
+    position: absolute;
+    width: 700px;
+    /* position: relative; */
+    /* margin-right: 5px; */
+    /* margin-left: 5px; */
+    padding: 0.2em 0.5em;
+    border: dashed 2px #fff;
+    background: #c8e4ff;
+    box-shadow: 0 0 0 5px #c8e4ff;
+    color: #454545;
+    /* padding-left: 30px; */
+}
+
+h3 {
+    padding-left: 50px;
+    /*文字周りの余白*/
+    color: #494949;
+    /*文字色*/
+    background: #fffaf4;
+    /*背景色*/
+    border-left: solid 5px #ffaf58;
+    /*左線（実線 太さ 色）*/
+}
+
+img {
+    width: 700px;
+}
