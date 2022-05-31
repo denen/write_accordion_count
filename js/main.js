@@ -53,16 +53,27 @@ function add_h2(event) { //　↓初期テンプレート表示と合体させ�
     contener.querySelector(".label-box").addEventListener('contextmenu', menu);
 }
 
+function add_content(event) {
+    var template = document.getElementById("h2"); //document.queryselectorでもいい https://zenn.dev/harryduck/articles/e3e6c9d37e0169c05096
+    var content = template.content; //　templateを取得してから中身を取得しないととれない　https://code-kitchen.dev/html/template/
+    var clone = content.cloneNode(true); //importnodeは他のドキュメントに属するノードをクローンする  https://yossan.hatenablog.com/entry/2020/03/29/185739
+    content_count = document.getElementsByClassName("content").length
+    clone.querySelector(".content__accordion--label").setAttribute("for", content_count + 1);
+    clone.querySelector("input").id = content_count + 1;
+    document.getElementById("main").insertBefore(clone, document.getElementsByClassName("content")[content_count - 1].nextElementSibling); //要素追加
+    document.getElementsByClassName("content")[content_count].querySelector(".content--add-content").addEventListener('click', add_content);
+    document.getElementsByClassName("content")[content_count].querySelector(".content--text").addEventListener('keyup', keyup_event);
+}
+
 function keyup_event(event) {
     t = event.target;
     //t_pre = t.previousElementSibling;
     //t_pre.getElementsByClassName("mojisu")[0].value = t.value.length
-    console.log(t.closest(".contener"));
-    console.log(t.closest(".contener").getElementsByClassName("mojisu")[0]);
-    t.closest(".contener").getElementsByClassName("mojisu")[0].value = t.innerText.length;
+    console.log(t.closest(".content").querySelector(".content--moji-count"));
+    t.closest(".content").querySelector(".content--moji-count").innerText = t.innerText.length + " 文字";
 
     let all_mojisu = 0;
-    const texts = document.getElementsByClassName("textarea");
+    const texts = document.getElementsByClassName("content--text");
     for (i = 0; i < texts.length; i++) {
         all_mojisu = all_mojisu + texts[i].innerText.length;
         console.log(texts[i]);
@@ -155,8 +166,9 @@ window.onload = function() {
     document.getElementById("main").insertBefore(clone, document.getElementById("title")); //要素追加
     //document.querySelector(".h2").addEventListener('dblclick', dblclick_label);
     //document.querySelector(".label-box").addEventListener('click', click_input);
-    //document.querySelector(".add-contener").addEventListener('click', add_h2);
+    document.querySelector(".content--add-content").addEventListener('click', add_content);
     //document.querySelector(".h2").addEventListener('contextmenu', menu);
+    document.querySelector(".content--text").addEventListener('keyup', keyup_event);
 }
 
 //https://www.sejuku.net/blog/92015

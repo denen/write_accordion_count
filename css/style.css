@@ -51,6 +51,24 @@
     color: #fff;
 }
 
+.content--add-content {
+    position: absolute;
+    bottom: -12px;
+    right: -30px;
+    height: 25px;
+    width: 25px;
+    opacity: 0.3;
+    transition: .5s;
+    background-color: cadetblue;
+    border-radius: 5px;
+}
+
+.content--add-content:hover {
+    display: block;
+    background-color: cadetblue;
+    opacity: 1;
+}
+
 
 /* #main {
     width: 800px;
