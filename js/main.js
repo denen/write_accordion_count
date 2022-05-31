@@ -149,13 +149,14 @@ window.onload = function() {
     var content = template.content; //　templateを取得してから中身を取得しないととれない　https://code-kitchen.dev/html/template/
     var clone = content.cloneNode(true); //importnodeは他のドキュメントに属するノードをクローンする  https://yossan.hatenablog.com/entry/2020/03/29/185739
     //clonenodeでも良い　https://developer.mozilla.org/ja/docs/Web/HTML/Element/template
-    clone.querySelector("#count1").id = 1;
-    clone.querySelector(".label").setAttribute("for", 1);
-    document.getElementById("title").insertBefore(clone, null); //要素追加
-    document.querySelector(".h2").addEventListener('dblclick', dblclick_label);
-    document.querySelector(".label-box").addEventListener('click', click_input);
-    document.querySelector(".add-contener").addEventListener('click', add_h2);
-    document.querySelector(".h2").addEventListener('contextmenu', menu);
+    //clone.querySelector("#count1").id = 1;
+    clone.querySelector(".content__accordion--label").setAttribute("for", 1);
+    clone.querySelector("input").id = 1;
+    document.getElementById("main").insertBefore(clone, document.getElementById("title")); //要素追加
+    //document.querySelector(".h2").addEventListener('dblclick', dblclick_label);
+    //document.querySelector(".label-box").addEventListener('click', click_input);
+    //document.querySelector(".add-contener").addEventListener('click', add_h2);
+    //document.querySelector(".h2").addEventListener('contextmenu', menu);
 }
 
 //https://www.sejuku.net/blog/92015

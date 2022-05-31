@@ -1,6 +1,60 @@
+.content__accordion--check {
+    display: none;
+}
+
+.content__accordion--label {
+    background: #333;
+    color: #fff;
+    display: block;
+    margin-bottom: 1px;
+    padding: 10px;
+}
+
+.content__accordion--text {
+    border: 1px solid #333;
+    height: 0;
+    opacity: 0;
+    padding: 0 10px;
+    transition: .5s;
+    visibility: hidden;
+}
+
+.content__accordion--check:checked+.content__accordion--text {
+    height: auto;
+    opacity: 1;
+    padding: 10px;
+    visibility: visible;
+}
+
+
+/* h2ラベル */
+
 #main {
     width: 800px;
-    /* background-color: blueviolet; */
+}
+
+.content {
+    position: relative;
+}
+
+.content--label {
+    position: absolute;
+    left: 35px;
+    top: -15px;
+    color: #fff;
+}
+
+.content--moji-count {
+    position: absolute;
+    right: 50px;
+    top: 10px;
+    color: #fff;
+}
+
+
+/* #main {
+    width: 800px;
+     background-color: blueviolet; 
 }
 
 .contener {
@@ -45,8 +99,8 @@
     height: 45px;
     width: 750px;
     display: block;
-    /* padding: 10px; */
-    /* background-color: aqua; */
+     padding: 10px; 
+    background-color: aqua; 
     position: relative;
 }
 
@@ -66,7 +120,7 @@
 }
 
 .textarea {
-    /* padding: 10 10px; */
+    padding: 10 10px;
     margin: 0;
     height: 0;
     width: 700px;
@@ -82,13 +136,13 @@
     width: 25px;
     opacity: 0.3;
     transition: .5s;
-    /* background-color: cadetblue; */
+    background-color: cadetblue;
     border-radius: 5px;
 }
 
 .add-contener:hover {
     display: block;
-    /* background-color: cadetblue; */
+    background-color: cadetblue;
     opacity: 1;
 }
 
@@ -106,7 +160,7 @@
     height: 100%;
     visibility: visible;
     box-sizing: border-box;
-    /* ↑これを入れるとはみ出さない！ https://teratail.com/questions/323268*/
+    ↑これを入れるとはみ出さない！ https://teratail.com/questions/323268
 }
 
 .textarea:focus {
@@ -114,7 +168,7 @@
 }
 
 
-/*右クリックメニュー*/
+右クリックメニュー
 
 #contextmenu {
     display: none;
@@ -133,34 +187,38 @@
 }
 
 
-/*h2のデザイン*/
+h2のデザイン
 
 h2 {
     left: 0px;
     position: absolute;
     width: 700px;
-    /* position: relative; */
-    /* margin-right: 5px; */
-    /* margin-left: 5px; */
+    position: relative; */
+
+
+/* margin-right: 5px; */
+
+
+/* margin-left: 5px;
     padding-left: 50px;
     border: dashed 2px #fff;
     background: #c8e4ff;
     box-shadow: 0 0 0 5px #c8e4ff;
     color: #454545;
-    /* padding-left: 30px; */
+    padding-left: 30px;
 }
 
 h3 {
     padding-left: 50px;
-    /*文字周りの余白*/
+    文字周りの余白
     color: #494949;
-    /*文字色*/
+    文字色
     background: #fffaf4;
-    /*背景色*/
+    背景色
     border-left: solid 5px #ffaf58;
-    /*左線（実線 太さ 色）*/
+    左線（実線 太さ 色）
 }
 
 img {
     width: 700px;
-}
+} */
