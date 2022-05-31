@@ -11,15 +11,15 @@ function h2_h3_change(e) { //親要素の.lavel-boxを取得。子要素を直�
     //console.log(target_div);
     console.log("selected_labelの表示")
     console.log(selected_label);
-    nakami = selected_label.querySelector(".h2").innerHTML;
+    nakami = selected_label.innerHTML;
     console.log(nakami);
-    tag = selected_label.querySelector(".h2").tagName;
+    tag = selected_label.tagName;
     if (tag == "H2") {
-        selected_label.querySelector(".h2").outerHTML = "<h3 contenteditable='true' class='h2'></h3>";
-        selected_label.querySelector(".h2").innerHTML = nakami;
+        selected_label.outerHTML = "<h3 contenteditable='true' class='h2'></h3>";
+        selected_label.innerHTML = nakami;
     } else if (tag == "H3") {
-        selected_label.querySelector(".h2").outerHTML = "<h2 contenteditable='true' class='h2'></h2>";
-        selected_label.querySelector(".h2").innerHTML = nakami;
+        selected_label.outerHTML = "<h2 contenteditable='true' class='h2'></h2>";
+        selected_label.innerHTML = nakami;
     }
     document.getElementById('contextmenu').style.display = "none";
     //e.target.removeEventListener("dblclick", h2_h3_change); //リムーブしなくてもなぜか消えてる？？？意味不明・・・
@@ -133,7 +133,8 @@ const add_contener_div = document.getElementsByClassName("add-contener")
 let selected_label
 
 function menu(e) {
-    selected_label = e.currentTarget
+    selected_label = e.currentTarget;
+    selected_label.blur();
     console.log(selected_label);
     document.getElementById('contextmenu').style.left = e.pageX + "px";
     document.getElementById('contextmenu').style.top = e.pageY + "px";
@@ -154,7 +155,7 @@ window.onload = function() {
     document.querySelector(".h2").addEventListener('dblclick', dblclick_label);
     document.querySelector(".label-box").addEventListener('click', click_input);
     document.querySelector(".add-contener").addEventListener('click', add_h2);
-    document.querySelector(".label-box").addEventListener('contextmenu', menu);
+    document.querySelector(".h2").addEventListener('contextmenu', menu);
 }
 
 //https://www.sejuku.net/blog/92015

@@ -21,7 +21,6 @@
 
 .h2 {
     position: absolute;
-    left: 40px;
     top: -10px;
 }
 
@@ -143,7 +142,7 @@ h2 {
     /* position: relative; */
     /* margin-right: 5px; */
     /* margin-left: 5px; */
-    padding: 0.2em 0.5em;
+    padding-left: 50px;
     border: dashed 2px #fff;
     background: #c8e4ff;
     box-shadow: 0 0 0 5px #c8e4ff;
